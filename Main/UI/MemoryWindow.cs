@@ -188,8 +188,8 @@ namespace FoenixToolkit.UI
                     return;
                 }
 
-                if (((address & 0xFF0000) == 0xAF0000) && ((address & 0xFFFF) != 0x0000))
-                    defaultVal = "AF0000";  // continue to look for a more specific region
+                if (((address & 0xFF0000) == 0xB60000) && ((address & 0xFFFF) != 0x0000))
+                    defaultVal = "B60000";  // continue to look for a more specific region
                 else if ((dropdownAddress == address) || (dropdownAddress == (address & 0xFF0000)))
                 {
                     cboAddress.ActiveId = item;
@@ -288,8 +288,8 @@ namespace FoenixToolkit.UI
                     int top = line * 17 + 52;
                     fixMain.Move(HighlightPanel, left, top);
 
-                    HighlightPanel.Text = value.ToString("X2");
                     HighlightPanel.Visible = true;
+                    HighlightPanel.Text = value.ToString("x2");     // Weird display bug when using "X2"... text disappears
                 }
                 else
                 {
