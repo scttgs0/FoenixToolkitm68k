@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 
 
-namespace FoenixIDE
+namespace FoenixCore
 {
     public class TerminalKeyEventArgs : KeyPressEventArgs
     {
