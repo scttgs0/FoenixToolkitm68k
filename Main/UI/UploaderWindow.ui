@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkWindow" id="UploaderWindow">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Uploader</property>
+    <signal name="key-press-event" handler="on_UploaderWindow_key_press_event" swapped="no"/>
+    <signal name="unrealize" handler="on_UploaderWindow_unrealize" swapped="no"/>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">10</property>
+        <property name="margin_right">10</property>
+        <property name="margin_top">10</property>
+        <property name="margin_bottom">10</property>
+        <child>
+          <object class="GtkButton" id="btnConnect">
+            <property name="label" translatable="yes">Connect</property>
+            <property name="width_request">100</property>
+            <property name="height_request">24</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnConnect_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnDisconnect">
+            <property name="label" translatable="yes">Disconnect</property>
+            <property name="width_request">100</property>
+            <property name="height_request">24</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnDisconnect_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblRevMode">
+            <property name="width_request">90</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Model: Rev C</property>
+          </object>
+          <packing>
+            <property name="x">235</property>
+            <property name="y">18</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cboComPort">
+            <property name="width_request">110</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">0</property>
+            <items>
+              <item id="1" translatable="yes">COM1</item>
+              <item id="2" translatable="yes">COM2</item>
+            </items>
+          </object>
+          <packing>
+            <property name="x">116</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="chkReflash">
+            <property name="label" translatable="yes">Flash</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">350</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnSendBinary">
+            <property name="label" translatable="yes">Send Binary</property>
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnSendBinary_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">420</property>
+            <property name="y">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rdoSendFile">
+            <property name="label" translatable="yes">Send File</property>
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_rdoSendFile_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">60</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFileChooserButton" id="fcbBrowseFile">
+            <property name="width_request">387</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="create_folders">False</property>
+            <property name="title" translatable="yes"/>
+            <signal name="file-set" handler="on_fcbBrowseFile_file_set" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">132</property>
+            <property name="y">54</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblFileSize">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">$00:0000</property>
+            <property name="xalign">0.94999998807907104</property>
+          </object>
+          <packing>
+            <property name="x">439</property>
+            <property name="y">93</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblFileSizeLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">File Size</property>
+          </object>
+          <packing>
+            <property name="x">388</property>
+            <property name="y">93</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rdoBlockSend">
+            <property name="label" translatable="yes">Send Memory Block</property>
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">rdoSendFile</property>
+            <signal name="toggled" handler="on_rdoBlockSend_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">125</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rdoBlockFetch">
+            <property name="label" translatable="yes">Fetch Memory Block</property>
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">rdoSendFile</property>
+            <signal name="toggled" handler="on_rdoBlockFetch_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">165</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblLocalAddr">
+            <property name="width_request">110</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Local Address</property>
+            <property name="justify">right</property>
+            <property name="single_line_mode">True</property>
+          </object>
+          <packing>
+            <property name="x">330</property>
+            <property name="y">131</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblRemoteAddr">
+            <property name="width_request">110</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Remote Address</property>
+            <property name="justify">right</property>
+            <property name="single_line_mode">True</property>
+          </object>
+          <packing>
+            <property name="x">330</property>
+            <property name="y">171</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtLocalAddr">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">7</property>
+            <property name="width_chars">7</property>
+            <property name="max_width_chars">7</property>
+            <property name="text" translatable="yes">00:0000</property>
+          </object>
+          <packing>
+            <property name="x">446</property>
+            <property name="y">125</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtRemoteAddr">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">7</property>
+            <property name="width_chars">7</property>
+            <property name="max_width_chars">7</property>
+            <property name="text" translatable="yes">00:0000</property>
+          </object>
+          <packing>
+            <property name="x">446</property>
+            <property name="y">165</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblTransferSize">
+            <property name="width_request">110</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">File Size</property>
+            <property name="justify">right</property>
+            <property name="single_line_mode">True</property>
+          </object>
+          <packing>
+            <property name="x">330</property>
+            <property name="y">211</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtTransferSize">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">7</property>
+            <property name="width_chars">7</property>
+            <property name="max_width_chars">7</property>
+          </object>
+          <packing>
+            <property name="x">446</property>
+            <property name="y">205</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="width_request">451</property>
+            <property name="height_request">2</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">35</property>
+            <property name="y">116</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="chkDebug">
+            <property name="label" translatable="yes">Debug</property>
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">9</property>
+            <property name="y">210</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblCountdown">
+            <property name="width_request">369</property>
+            <property name="height_request">20</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">                                                Erasing Flash                                                </property>
+            <property name="justify">fill</property>
+            <property name="single_line_mode">True</property>
+            <attributes>
+              <attribute name="style" value="normal"/>
+              <attribute name="weight" value="medium"/>
+              <attribute name="foreground" value="#eeeeeeeeecec"/>
+              <attribute name="background" value="#59dcb0a307a7"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">93</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

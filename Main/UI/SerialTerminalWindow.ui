@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkTextBuffer" id="textbufferTerminal">
+    <property name="text" translatable="yes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque. Ut faucibus pulvinar elementum integer enim neque volutpat ac. Orci porta non pulvinar neque laoreet suspendisse. Et egestas quis ipsum suspendisse. Consectetur a erat nam at lectus urna. Vel turpis nunc eget lorem dolor sed viverra ipsum nunc. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Tristique magna sit amet purus gravida quis. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Sit amet dictum sit amet justo donec enim diam vulputate. Augue lacus viverra vitae congue.
+
+Fusce id velit ut tortor pretium viverra suspendisse. Massa sapien faucibus et molestie ac feugiat. Nunc vel risus commodo viverra maecenas accumsan lacus vel. Ultrices in iaculis nunc sed augue lacus. Integer malesuada nunc vel risus commodo viverra. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Tortor vitae purus faucibus ornare suspendisse sed nisi. Risus at ultrices mi tempus. Vitae congue eu consequat ac felis donec. Aliquam nulla facilisi cras fermentum. Egestas tellus rutrum tellus pellentesque eu tincidunt. Sed blandit libero volutpat sed cras ornare arcu dui. Bibendum ut tristique et egestas. Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus. Sed tempus urna et pharetra.</property>
+  </object>
+  <object class="GtkWindow" id="SerialTerminalWindow">
+    <property name="width_request">400</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Serial Terminal</property>
+    <property name="default_width">400</property>
+    <property name="default_height">300</property>
+    <property name="has_resize_grip">True</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="width_request">400</property>
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="hscrollbar_policy">never</property>
+        <property name="shadow_type">in</property>
+        <child>
+          <object class="GtkViewport">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkTextView" id="tvwContent">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="wrap_mode">word</property>
+                <property name="buffer">textbufferTerminal</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

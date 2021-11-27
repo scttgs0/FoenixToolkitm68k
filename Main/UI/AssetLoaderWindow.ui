@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkWindow" id="AssetLoaderWindow">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Asset Loader</property>
+    <signal name="key-press-event" handler="on_AssetLoaderWindow_key_press_event" swapped="no"/>
+    <signal name="realize" handler="on_AssetLoaderWindow_realize" swapped="no"/>
+    <signal name="unrealize" handler="on_AssetLoaderWindow_unrealize" swapped="no"/>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">10</property>
+        <property name="margin_right">10</property>
+        <property name="margin_top">10</property>
+        <property name="margin_bottom">10</property>
+        <child>
+          <object class="GtkFileChooserButton" id="fcbBrowseFile">
+            <property name="width_request">445</property>
+            <property name="height_request">24</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="create_folders">False</property>
+            <property name="title" translatable="yes"/>
+            <signal name="file-set" handler="on_fcbBrowseFile_file_set" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblFileSize">
+            <property name="width_request">59</property>
+            <property name="height_request">13</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">2</property>
+            <property name="margin_bottom">2</property>
+            <property name="label" translatable="yes">File Size</property>
+          </object>
+          <packing>
+            <property name="x">65</property>
+            <property name="y">45</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblFileSizeResult">
+            <property name="width_request">52</property>
+            <property name="height_request">13</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">2</property>
+            <property name="margin_bottom">2</property>
+            <property name="label" translatable="yes">$00:0000</property>
+          </object>
+          <packing>
+            <property name="x">134</property>
+            <property name="y">45</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblLoadAddress">
+            <property name="width_request">88</property>
+            <property name="height_request">13</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">2</property>
+            <property name="margin_bottom">2</property>
+            <property name="label" translatable="yes">Load Address</property>
+          </object>
+          <packing>
+            <property name="x">259</property>
+            <property name="y">45</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtLoadAddress">
+            <property name="width_request">71</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="width_chars">6</property>
+            <property name="max_width_chars">7</property>
+            <property name="text" translatable="yes">B0:0000</property>
+          </object>
+          <packing>
+            <property name="x">389</property>
+            <property name="y">42</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblDollarSign">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">$</property>
+            <property name="width_chars">1</property>
+            <property name="single_line_mode">True</property>
+            <property name="max_width_chars">1</property>
+          </object>
+          <packing>
+            <property name="x">380</property>
+            <property name="y">48</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblType">
+            <property name="width_request">39</property>
+            <property name="height_request">13</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">2</property>
+            <property name="margin_bottom">2</property>
+            <property name="label" translatable="yes">Type</property>
+          </object>
+          <packing>
+            <property name="x">83</property>
+            <property name="y">81</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cboFileTypes">
+            <property name="width_request">144</property>
+            <property name="height_request">21</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <signal name="changed" handler="on_cboFileTypes_changed" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">133</property>
+            <property name="y">76</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="LblLUT">
+            <property name="width_request">35</property>
+            <property name="height_request">13</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">2</property>
+            <property name="margin_bottom">2</property>
+            <property name="label" translatable="yes">LUT</property>
+          </object>
+          <packing>
+            <property name="x">303</property>
+            <property name="y">81</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cboLUT">
+            <property name="width_request">117</property>
+            <property name="height_request">21</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">343</property>
+            <property name="y">76</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnStore">
+            <property name="label" translatable="yes">Store</property>
+            <property name="width_request">112</property>
+            <property name="height_request">24</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnStore_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">189</property>
+            <property name="y">126</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

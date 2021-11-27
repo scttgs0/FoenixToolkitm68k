@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkBox" id="CharViewerControl">
+    <property name="name">CharViewer</property>
+    <property name="width_request">370</property>
+    <property name="height_request">370</property>
+    <property name="visible">True</property>
+    <property name="app_paintable">True</property>
+    <property name="can_focus">True</property>
+    <signal name="button-press-event" handler="on_CharViewerControl_button_press_event" swapped="no"/>
+    <signal name="button-release-event" handler="on_CharViewerControl_button_release_event" swapped="no"/>
+    <signal name="draw" handler="on_CharViewerControl_draw" swapped="no"/>
+    <signal name="motion-notify-event" handler="on_CharViewerControl_motion_notify_event" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+  </object>
+</interface>

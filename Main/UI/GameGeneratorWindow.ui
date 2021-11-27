@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkTextBuffer" id="textbufferAsm">
+    <property name="text" translatable="yes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam vulputate ut pharetra sit amet aliquam id. Velit aliquet sagittis id consectetur purus. Fringilla est ullamcorper eget nulla facilisi. Et malesuada fames ac turpis egestas. Sed id semper risus in hendrerit gravida. Ut aliquam purus sit amet. Dolor purus non enim praesent. Vestibulum mattis ullamcorper velit sed. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Et malesuada fames ac turpis. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. Erat imperdiet sed euismod nisi. Egestas quis ipsum suspendisse ultrices gravida dictum. Suspendisse interdum consectetur libero id faucibus nisl. Elit scelerisque mauris pellentesque pulvinar pellentesque. Tortor aliquam nulla facilisi cras fermentum odio eu. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Sed odio morbi quis commodo.
+
+At elementum eu facilisis sed odio morbi quis commodo odio. Pretium fusce id velit ut tortor pretium viverra. Urna cursus eget nunc scelerisque. Est sit amet facilisis magna etiam. Vivamus arcu felis bibendum ut tristique. Non enim praesent elementum facilisis leo. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Consequat mauris nunc congue nisi vitae. Purus ut faucibus pulvinar elementum integer. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Odio facilisis mauris sit amet massa vitae tortor condimentum. Cras semper auctor neque vitae tempus quam. Euismod lacinia at quis risus sed vulputate. Viverra ipsum nunc aliquet bibendum enim facilisis. Tellus at urna condimentum mattis pellentesque id nibh tortor. Viverra nibh cras pulvinar mattis nunc sed blandit. Aliquam ut porttitor leo a diam sollicitudin tempor id. Purus sit amet volutpat consequat mauris nunc congue nisi. Cras fermentum odio eu feugiat pretium.
+
+Vel quam elementum pulvinar etiam. Facilisis volutpat est velit egestas dui id ornare. Eu scelerisque felis imperdiet proin fermentum leo vel orci porta. Purus semper eget duis at tellus at urna. Quis vel eros donec ac odio. Facilisis mauris sit amet massa vitae tortor condimentum lacinia. Convallis tellus id interdum velit laoreet. Viverra ipsum nunc aliquet bibendum enim facilisis. Elit ullamcorper dignissim cras tincidunt. Et malesuada fames ac turpis egestas. Eu turpis egestas pretium aenean pharetra magna ac placerat. Bibendum est ultricies integer quis auctor. Tempor commodo ullamcorper a lacus vestibulum sed. Nibh praesent tristique magna sit amet. Condimentum vitae sapien pellentesque habitant. Est ante in nibh mauris cursus mattis molestie a iaculis. Sit amet volutpat consequat mauris. Amet mattis vulputate enim nulla aliquet porttitor lacus. Sit amet volutpat consequat mauris nunc congue nisi.
+
+Vitae nunc sed velit dignissim. Nunc consequat interdum varius sit amet. Sagittis purus sit amet volutpat consequat. Amet nulla facilisi morbi tempus iaculis urna. Volutpat odio facilisis mauris sit amet. Morbi tincidunt ornare massa eget egestas purus. Erat nam at lectus urna. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Ut pharetra sit amet aliquam id diam. Id diam maecenas ultricies mi eget. Dictum varius duis at consectetur lorem donec massa sapien. Sit amet venenatis urna cursus. Turpis cursus in hac habitasse platea. Blandit libero volutpat sed cras ornare arcu dui vivamus. Eu ultrices vitae auctor eu augue ut.
+
+Eget sit amet tellus cras adipiscing. Pharetra massa massa ultricies mi quis hendrerit dolor. Pharetra convallis posuere morbi leo urna molestie at. Vitae congue eu consequat ac felis. Lorem mollis aliquam ut porttitor leo. Tempus iaculis urna id volutpat. Integer quis auctor elit sed vulputate. Pretium aenean pharetra magna ac placerat vestibulum. In egestas erat imperdiet sed euismod nisi porta lorem. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Ipsum dolor sit amet consectetur adipiscing elit duis. Enim neque volutpat ac tincidunt. Feugiat vivamus at augue eget arcu. Condimentum lacinia quis vel eros donec. Enim sit amet venenatis urna cursus eget nunc scelerisque viverra.</property>
+  </object>
+  <object class="GtkWindow" id="GameGeneratorWindow">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Game Generator</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="width_request">600</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkViewport">
+                <property name="width_request">400</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_right">331</property>
+                <child>
+                  <object class="GtkTextView" id="tvwCode">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="buffer">textbufferAsm</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkAlignment">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">1</property>
+            <child>
+              <object class="GtkFlowBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkFlowBoxChild">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">8</property>
+                            <property name="margin_bottom">8</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkButton" id="btnGenerateASM">
+                                <property name="label" translatable="yes">Generate Asm</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_top">6</property>
+                                <property name="margin_bottom">6</property>
+                                <signal name="clicked" handler="on_btnGenerateASM_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="btnViewAssets">
+                                <property name="label" translatable="yes">View Assets</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="margin_top">6</property>
+                                <property name="margin_bottom">6</property>
+                                <signal name="clicked" handler="on_btnViewAssets_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">8</property>
+                            <property name="margin_bottom">8</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkButton" id="btnLoad">
+                                <property name="label" translatable="yes">Load Game</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="on_btnLoad_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="btnSave">
+                                <property name="label" translatable="yes">Save Game</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="on_btnSave_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">8</property>
+                            <property name="margin_bottom">8</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">SOF IRQ</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">SOL IRQ</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">Timer0 IRQ</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">Timer1 IRQ</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">Timer2 IRQ</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">Mouse IRQ</property>
+                                <property name="width_request">110</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">5</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">8</property>
+                            <property name="margin_bottom">8</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">Keyboard IRQ</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">STS_COL IRQ</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">STT_COL IRQ</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">8</property>
+                            <property name="margin_bottom">8</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkCheckButton">
+                                <property name="label" translatable="yes">Send Debug
+Code to EVID</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_left">10</property>
+                            <property name="margin_right">10</property>
+                            <property name="margin_top">8</property>
+                            <property name="margin_bottom">8</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="btnClose">
+                                <property name="label" translatable="yes">Close</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="on_btnClose_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="pack_type">end</property>
+                            <property name="position">5</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
