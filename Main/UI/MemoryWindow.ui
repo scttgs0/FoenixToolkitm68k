@@ -12,12 +12,6 @@
         <col id="0" translatable="yes">Bank $00</col>
       </row>
       <row>
-        <col id="0" translatable="yes">Bank $18</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Bank $19</col>
-      </row>
-      <row>
         <col id="0" translatable="yes">Bank $AF (Vicky)</col>
       </row>
       <row>
@@ -141,24 +135,15 @@
                 <property name="can_focus">False</property>
                 <items>
                   <item id="000000" translatable="yes">Bank $00</item>
-                  <item id="180000" translatable="yes">Bank $18</item>
-                  <item id="190000" translatable="yes">Bank $19</item>
-                  <item id="AF0000" translatable="yes">Bank $AF (Vicky)</item>
-                  <item id="B00000" translatable="yes">Bank $B0 (Video)</item>
-                  <item id="AF0100" translatable="yes">Address $AF:0100 (Bitmap Registers)</item>
-                  <item id="AF0200" translatable="yes">Address $AF:0200 (Tile Registers)</item>
-                  <item id="AF0C00" translatable="yes">Address $AF:0C00 (Sprite Registers)</item>
-                  <item id="AF1F40" translatable="yes">Address $AF:1F40 (Text Color Palette Foreground)</item>
-                  <item id="AF1F80" translatable="yes">Address $AF:1F80 (Text Color Palette Background)</item>
-                  <item id="AF2000" translatable="yes">Address $AF:2000 (LUT 0)</item>
-                  <item id="AF2400" translatable="yes">Address $AF:2400 (LUT 1)</item>
-                  <item id="AF2800" translatable="yes">Address $AF:2800 (LUT 2)</item>
-                  <item id="AF2C00" translatable="yes">Address $AF:2C00 (LUT 3)</item>
-                  <item id="AF8000" translatable="yes">Address $AF:8000 (Font Memory Bank 0)</item>
-                  <item id="AF8800" translatable="yes">Address $AF:8800 (Font Memory Bank 1)</item>
-                  <item id="AFA000" translatable="yes">Address $AF:A000 (Text Memory)</item>
-                  <item id="AFC000" translatable="yes">Address $AF:C000 (Text Colors)</item>
-                  <item id="AFE000" translatable="yes">Address $AF:E000 (Gabe)</item>
+                  <item id="B00000" translatable="yes">Bank $B0 (GAVIN)</item>
+                  <item id="B20000" translatable="yes">Bank $B2 (BEATRIX)</item>
+                  <item id="B40000" translatable="yes">Bank $B4 (VICKY II)</item>
+                  <item id="B60000" translatable="yes">Bank $B6 (Text RAM)</item>
+                  <item id="BF0000" translatable="yes">Bank $BF (Expansion Bus)</item>
+                  <item id="C00000" translatable="yes">Bank $C0 (Graphics RAM)</item>
+                  <item id="E00000" translatable="yes">Bank $E0 (Kernel ROM)</item>
+                  <item id="B60000" translatable="yes">Address $B6:0000 (Text RAM)</item>
+                  <item id="B64000" translatable="yes">Address $B6:4000 (Text Color RAM)</item>
                   <item id="FFFFFF" translatable="yes">Unspecified Page</item>
                 </items>
                 <signal name="changed" handler="on_cboAddress_changed" swapped="no"/>
