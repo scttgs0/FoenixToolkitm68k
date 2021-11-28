@@ -48,11 +48,11 @@ namespace FoenixToolkit.UI
         private readonly ResourceChecker ResChecker = new();
         private delegate void TransmitByteFunction(byte Value);
         private delegate void ShowFormFunction();
-        private readonly String defaultKernel = "roms/kernel.hex";
+        private readonly String defaultKernel = "roms/kernel_A2560U.srec";
         private readonly int jumpStartAddress;
         private readonly bool disabledIRQs = false;
         private readonly bool autoRun = true;
-        private BoardVersion version = BoardVersion.RevC;
+        private BoardVersion version = BoardVersion.A2560U;
         private delegate void WriteCPSFPSFunction(string CPS, string FPS);
         private bool fullScreen = false;
         const double toRadians = 0.017453293;
@@ -95,14 +95,10 @@ namespace FoenixToolkit.UI
 
                 if (context.ContainsKey("version"))
                 {
-                    if (context["version"] == "RevB")
-                        version = BoardVersion.RevB;
-                    else if (context["version"] == "RevC")
-                        version = BoardVersion.RevC;
-                    else if (context["version"] == "RevU")
-                        version = BoardVersion.RevU;
-                    else if (context["version"] == "RevU+")
-                        version = BoardVersion.RevUPlus;
+                    if (context["version"] == "A2560U")
+                        version = BoardVersion.A2560U;
+                    else if (context["version"] == "A2560K")
+                        version = BoardVersion.A2560K;
                 }
             }
 
@@ -110,25 +106,19 @@ namespace FoenixToolkit.UI
             if (context == null)
             {
                 autoRun = false;
-                version = BoardVersion.RevC;
-                string versionText = "C";
+                version = BoardVersion.A2560U;
+                string versionText = "A2560U";
 
                 //-- autoRun = Simulator.Properties.Settings.Default.Autorun;
                 // versionText = Simulator.Properties.Settings.Default.BoardRevision;
 
                 switch (versionText)
                 {
-                    case "B":
-                        version = BoardVersion.RevB;
+                    case "A2560U":
+                        version = BoardVersion.A2560U;
                         break;
-                    case "C":
-                        version = BoardVersion.RevC;
-                        break;
-                    case "U":
-                        version = BoardVersion.RevU;
-                        break;
-                    case "U+":
-                        version = BoardVersion.RevUPlus;
+                    case "A2560K":
+                        version = BoardVersion.A2560K;
                         break;
                 }
             }
@@ -152,24 +142,17 @@ namespace FoenixToolkit.UI
 
         private void DisplayBoardVersion()
         {
-            string shortVersion = "C";
+            //-- string shortVersion = "U";
 
-            if (version == BoardVersion.RevB)
+            if (version == BoardVersion.A2560U)
             {
-                lblRevision.Text = "Rev B";
-                shortVersion = "B";
+                lblRevision.Text = "A2560U";
+                //-- shortVersion = "U";
             }
-            else if (version == BoardVersion.RevC)
-                lblRevision.Text = "Rev C";
-            else if (version == BoardVersion.RevU)
+            else if (version == BoardVersion.A2560K)
             {
-                lblRevision.Text = "Rev U";
-                shortVersion = "U";
-            }
-            else
-            {
-                lblRevision.Text = "Rev U+";
-                shortVersion = "U+";
+                lblRevision.Text = "A2560K";
+                //-- shortVersion = "K";
             }
 
             // force repaint
@@ -177,6 +160,30 @@ namespace FoenixToolkit.UI
 
             //-- Simulator.Properties.Settings.Default.BoardRevision = shortVersion;
             // Simulator.Properties.Settings.Default.Save();
+        }
+
+        private void LoadSrecFile(string Filename)
+        {
+            if (cpu68000Window != null)
+                cpu68000Window.Pause();
+
+            kernel.SetVersion(version);
+
+            if (kernel.ResetCPU(Filename))
+            {
+                ucGpu.QueueDraw();
+
+                if (kernel.lstFile != null)
+                {
+                    ShowCpu68000Window();
+                    ShowMemoryWindow();
+                }
+
+                ResetSDCard();
+
+                if (cpu68000Window != null)
+                    cpu68000Window.ClearTrace();
+            }
         }
 
         private void LoadHexFile(string Filename)
@@ -410,14 +417,10 @@ namespace FoenixToolkit.UI
 
         private void on_evtRevision_button_press_event(object sender, ButtonPressEventArgs e)
         {
-            if (version == BoardVersion.RevB)
-                version = BoardVersion.RevC;
-            else if (version == BoardVersion.RevC)
-                version = BoardVersion.RevU;
-            else if (version == BoardVersion.RevU)
-                version = BoardVersion.RevUPlus;
-            else
-                version = BoardVersion.RevB;
+            if (version == BoardVersion.A2560U)
+                version = BoardVersion.A2560K;
+            else if (version == BoardVersion.A2560K)
+                version = BoardVersion.A2560U;
 
             kernel.SetVersion(version);
             if (uploaderWindow != null)
@@ -469,6 +472,26 @@ namespace FoenixToolkit.UI
         private void on_menuFileExit_Activate(object sender, EventArgs e)
         {
             Application.Quit();
+        }
+
+        private void on_menuFileLoadSREC_activate(object sender, EventArgs e)
+        {
+            FileChooserDialog filechooser =
+                new("Select a SREC File", this,
+                    FileChooserAction.Open,
+                    "Cancel", ResponseType.Cancel,
+                    "Open", ResponseType.Accept);
+
+            FileFilter ff = new();
+            ff.Name = "SREC Files";
+            ff.AddPattern("*.srec");
+            filechooser.AddFilter(ff);
+
+            if (filechooser.Run() == (int)ResponseType.Accept) 
+                LoadSrecFile(filechooser.Filename);
+
+            ff.Dispose();
+            filechooser.Destroy();
         }
 
         private void on_menuFileLoadHex_Activate(object sender, EventArgs e)
@@ -896,7 +919,7 @@ namespace FoenixToolkit.UI
 
             // Add an Accept header for JSON format
             client.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
-            client.DefaultRequestHeaders.Add("user-agent", "Foenix IDE");
+            client.DefaultRequestHeaders.Add("user-agent", "Foenix Toolkit");
             bool done = false;
 
             // List data response.
@@ -1128,7 +1151,7 @@ namespace FoenixToolkit.UI
             cr.SelectFontFace("Consolas", Cairo.FontSlant.Normal, Cairo.FontWeight.Normal);
             cr.SetFontSize(9);
 
-            if (version != BoardVersion.RevB)
+            if (version != BoardVersion.A2560K)
             {
                 int width = 128;
                 int height = 23;

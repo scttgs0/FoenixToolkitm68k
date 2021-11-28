@@ -7,7 +7,7 @@ namespace FoenixCore
     public class MainProcess
     {
         //private FoenixSystem kernel;
-        private BoardVersion version = BoardVersion.RevC;
+        //-- private BoardVersion version = BoardVersion.A2560U;
         //private Cpu68000Window cpu68000Window;
 
         public static byte BCD(int val)

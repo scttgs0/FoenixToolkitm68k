@@ -2,9 +2,7 @@
 {
     public enum BoardVersion
     {
-        RevB,
-        RevC,
-        RevU,
-        RevUPlus
+        A2560U,
+        A2560K
     }
 }

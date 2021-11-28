@@ -46,7 +46,7 @@ namespace FoenixCore.Simulator.FileFormat
 
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteRaw("\r");
-            xmlWriter.WriteComment("Export of FoenixIDE for C256.  All values are in hexadecimal form");
+            xmlWriter.WriteComment("Export for A2560 Foenix.  All values are in hexadecimal form");
             xmlWriter.WriteRaw("\r");
 
             xmlWriter.WriteStartElement("project");
@@ -205,7 +205,7 @@ namespace FoenixCore.Simulator.FileFormat
 
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteRaw("\r");
-            xmlWriter.WriteComment("Export of Watch List for C256 Foenix IDE");
+            xmlWriter.WriteComment("Export of Watch List for A2560 Foenix");
             xmlWriter.WriteRaw("\r");
 
             if (watchList != null)
@@ -325,7 +325,7 @@ namespace FoenixCore.Simulator.FileFormat
         public void Load(String filename)
         {
             XmlReader reader = XmlReader.Create(filename);
-            Version = BoardVersion.RevB;
+            Version = BoardVersion.A2560U;
 
             if (_resources == null)
                 _resources = new ResourceChecker();

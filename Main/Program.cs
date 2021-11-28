@@ -48,12 +48,12 @@ namespace FoenixToolkit.UI
                 switch (args[i].Trim())
                 {
                     // the hex file to load is specified
-                    case "-h":
-                    case "--hex":
+                    case "-k":
+                    case "--kernel":
                         // a kernel file must be specified
-                        if (args.Length == i + 1 || args[i + 1].Trim().StartsWith("-") || !args[i + 1].Trim().EndsWith("hex"))
+                        if (args.Length == i + 1 || args[i + 1].Trim().StartsWith("-") || !args[i + 1].Trim().EndsWith("kernel"))
                         {
-                            Console.Out.WriteLine("You must specify a hex file.");
+                            Console.Out.WriteLine("You must specify a kernel file.");
                             context["Continue"] = "false";
                             break;
                         }
@@ -115,11 +115,11 @@ namespace FoenixToolkit.UI
                         context.Add("disabledIRQs", "true");
                         break;
 
-                    // Board Version B or C
+                    // Board Version U or K
                     case "-b":
                     case "--board":
                         if (args.Length == i + 1 || args[i + 1].Trim().StartsWith("-")) {
-                            Console.Out.WriteLine("You must specify a board revision.");
+                            Console.Out.WriteLine("You must specify a board version.");
                             context["Continue"] = "false";
                             break;
                         }
@@ -129,16 +129,12 @@ namespace FoenixToolkit.UI
 
                         switch (verArg.ToLower())
                         {
-                            case "b":
-                                context.Add("version", "RevB");
-                                break;
-
-                            case "c":
-                                context.Add("version", "RevC");
+                            case "k":
+                                context.Add("version", "A2560K");
                                 break;
 
                             case "u":
-                                context.Add("version", "RevU");
+                                context.Add("version", "A2560U");
                                 break;
                         }
                         break;
@@ -164,12 +160,12 @@ namespace FoenixToolkit.UI
 
         static void DisplayUsage()
         {
-            Console.Out.WriteLine("Foenix IDE Command Line Usage:");
-            Console.Out.WriteLine("   -h, --hex: kernel file name");
+            Console.Out.WriteLine("Foenix Toolkit Usage:");
+            Console.Out.WriteLine("   -k, --kernel: kernel file name (srec)");
             Console.Out.WriteLine("   -j, --jump: jump to specified address");
             Console.Out.WriteLine("   -r, --run: autorun true/false");
             Console.Out.WriteLine("   -i, --irq: disable IRQs true/false");
-            Console.Out.WriteLine("   -b, --board: board revision b, c or u");
+            Console.Out.WriteLine("   -b, --board: board version (u or k)");
             Console.Out.WriteLine("   --help: show this usage");
         }
 

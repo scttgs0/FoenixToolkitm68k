@@ -19,7 +19,7 @@ namespace FoenixCore
         public SortedList<int, WatchedMemory> WatchList = new();
         private string LoadedKernel;
 
-        public FoenixSystem(BoardVersion version, string DefaultKernel)
+        public FoenixSystem(BoardVersion version, string kernel)
         {
             boardVersion = version;
 
@@ -31,26 +31,14 @@ namespace FoenixCore
 
             switch (boardVersion)
             {
-                case BoardVersion.RevB:
-                    break;
-
-                case BoardVersion.RevC:
-                    memSize *= 2;
-                    break;
-
-                case BoardVersion.RevU:
+                case BoardVersion.A2560U:
+                case BoardVersion.A2560K:
                     SystemStat = 1;
-                    keyboardAddress = MemoryMap.KBD_DATA_BUF_U;
-                    break;
-
-                case BoardVersion.RevUPlus:
-                    memSize *= 2;
-                    SystemStat = 5;
                     keyboardAddress = MemoryMap.KBD_DATA_BUF_U;
                     break;
             }
 
-            if (boardVersion == BoardVersion.RevB)
+            if (boardVersion == BoardVersion.A2560U)
             {
                 codec = new CodecRAM(MemoryMap.CODEC_WR_CTRL, 2);  // This register is only a single byte but we allow writing a word
                 sdcard = new CH376SRegister(MemoryMap.SDCARD_DATA, MemoryMap.SDCARD_SIZE);
@@ -96,8 +84,8 @@ namespace FoenixCore
             MemMgr.VDMA.SetVickyRam(MemMgr.VICKY);
             MemMgr.GABE.WriteByte(MemoryMap.GABE_SYS_STAT - MemoryMap.GABE_START, SystemStat);
 
-            // Load the kernel.hex if present
-            ResetCPU(DefaultKernel);
+            // Load the kernel if present
+            ResetCPU(kernel);
 
             // Write bytes $9F in the joystick registers to mean that they are not installed.
             MemMgr.WriteWord(0xAFE800, 0x9F9F);
@@ -191,7 +179,7 @@ namespace FoenixCore
 
             // If the reset vector is not set in Bank 0, but it is set in Bank 18, then copy bank 18 into bank 0.
             int BasePageAddress = 0x18_0000;
-            if (boardVersion == BoardVersion.RevC || boardVersion == BoardVersion.RevUPlus)
+            if (boardVersion == BoardVersion.A2560K || boardVersion == BoardVersion.A2560U)
                 BasePageAddress = 0x38_0000;
 
             if (LoadedKernel.EndsWith(".fnxml", true, null))
@@ -205,7 +193,7 @@ namespace FoenixCore
             }
             else
             {
-                LoadedKernel = HexFile.Load(MemMgr.RAM, LoadedKernel, BasePageAddress, out _, out _);
+                LoadedKernel = SrecFile.Load(MemMgr.RAM, LoadedKernel, BasePageAddress, out _, out _);
                 if (LoadedKernel == null)
                     return false;
 

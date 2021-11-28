@@ -19,7 +19,7 @@ namespace FoenixToolkit.UI
     class UploaderWindow : Window
     {
         private FoenixSystem _kernel = null;
-        private BoardVersion boardVersion = BoardVersion.RevC;
+        private BoardVersion boardVersion = BoardVersion.A2560U;
 
         public static byte TxLRC = 0;
         public static byte RxLRC = 0;
@@ -92,11 +92,9 @@ namespace FoenixToolkit.UI
 
             lblRevMode.Text = boardVersion switch
             {
-                BoardVersion.RevB => "Mode: RevB",
-                BoardVersion.RevC => "Mode: RevC",
-                BoardVersion.RevU => "Mode: RevU",
-                BoardVersion.RevUPlus => "Mode: RevU+",
-                _ => "Mode: RevC"
+                BoardVersion.A2560U => "Mode: A2560U",
+                BoardVersion.A2560K => "Mode: A2560K",
+                _ => "Mode: A2560U"
             };
         }
 
@@ -613,7 +611,7 @@ namespace FoenixToolkit.UI
 
             int BaseBankAddress = 0x38_0000;
 
-            if (boardVersion == BoardVersion.RevB)
+            if (boardVersion == BoardVersion.A2560U)
                 BaseBankAddress = 0x18_0000;
 
             if (rdoSendFile.Active)
