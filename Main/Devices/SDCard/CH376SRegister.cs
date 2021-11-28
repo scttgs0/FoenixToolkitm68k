@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-﻿using FoenixCore.Simulator.Devices.SDCard;
+using FoenixCore.Simulator.Devices.SDCard;
 
 
 namespace FoenixCore.Simulator.Devices

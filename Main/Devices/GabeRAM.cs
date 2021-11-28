@@ -1,6 +1,6 @@
 using System;
 
-﻿using FoenixCore.MemoryLocations;
+using FoenixCore.MemoryLocations;
 
 
 namespace FoenixCore.Simulator.Devices
@@ -11,7 +11,6 @@ namespace FoenixCore.Simulator.Devices
 
         public GabeRAM(int StartAddress, int Length) : base(StartAddress, Length)
         {
-
         }
 
         override public byte ReadByte(int Address)

@@ -34,7 +34,7 @@ namespace FoenixCore.Processor.Generic
         {
             string val = value.ToString("X6");
 
-            return "$" + val[..2] + ":" + val[2..];
+            return $"${val[..2]}:{val[2..]}";
         }
 
         public static int GetIntFromHex(string Hex)
@@ -60,8 +60,8 @@ namespace FoenixCore.Processor.Generic
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Breakpoints.Add(" + HexAddress + ")");
-                Debug.WriteLine("Message:  " + ex.Message);
+                Debug.WriteLine($"Breakpoints.Add({HexAddress})");
+                Debug.WriteLine($"Message:  {ex.Message}");
 
                 return -1;
             }
@@ -77,8 +77,8 @@ namespace FoenixCore.Processor.Generic
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Breakpoints.Remove(" + HexAddress + ")");
-                Debug.WriteLine("Message:  " + ex.Message);
+                Debug.WriteLine($"Breakpoints.Remove({HexAddress})");
+                Debug.WriteLine($"Message:  {ex.Message}");
             }
         }
 

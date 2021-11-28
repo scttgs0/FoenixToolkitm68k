@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Xml;
 
-using FoenixCore.Processor;
 using FoenixCore.Simulator.Devices;
+
 using static FoenixCore.Simulator.FileFormat.ResourceChecker;
 
 

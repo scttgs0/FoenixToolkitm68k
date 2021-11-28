@@ -7,7 +7,7 @@ using FoenixCore.Processor.m68000;
 namespace FoenixCore.Simulator.FileFormat
 {
     /// <summary>
-    /// Container to hold one line of 65C816 code debugging data
+    /// Container to hold one line of processor code debugging data
     /// </summary>
     public class DebugLine : ICloneable
     {

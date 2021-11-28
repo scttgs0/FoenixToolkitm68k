@@ -4,7 +4,6 @@
     {
         public InterruptController(int StartAddress, int Length) : base(StartAddress, Length)
         {
-
         }
 
         // When the CPU writes to the register

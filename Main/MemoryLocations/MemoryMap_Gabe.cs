@@ -9,13 +9,13 @@
         public const int OPL2_S_BASE = 0xAF_E700;   // Start of OPL2 Stereo range
 
         // Joystick Ports
-        public const int JOYSTICK0 = 0xAF_E800; // (R) Joystick 0 - J7(Next to Buzzer)
-        public const int JOYSTICK1 = 0xAF_E801; // (R) Joystick 1 - J8
-        public const int JOYSTICK2 = 0xAF_E802; // (R) Joystick 2 - J9
-        public const int JOYSTICK3 = 0xAF_E803; // (R) Joystick 3 - J10(next to SD Card)
+        public const int JOYSTICK0 = 0xAF_E800;     // (R) Joystick 0 - J7(Next to Buzzer)
+        public const int JOYSTICK1 = 0xAF_E801;     // (R) Joystick 1 - J8
+        public const int JOYSTICK2 = 0xAF_E802;     // (R) Joystick 2 - J9
+        public const int JOYSTICK3 = 0xAF_E803;     // (R) Joystick 3 - J10(next to SD Card)
 
         // Dip switch Ports
-        public const int DIPSWITCH = 0xAF_E804; // (R) $AFE804...$AFE807
+        public const int DIPSWITCH = 0xAF_E804;     // (R) $AFE804...$AFE807
 
         public const int SDCARD_START = 0xAF_E808;  // Start of SDCARD memory range
 
@@ -42,17 +42,17 @@
         */
 
         public const int GABE_MSTR_CTRL = 0xAF_E880;
-        public const int GABE_NOTUSED = 0xAF_E881;  // Reserved for future use
-        public const int GABE_RST_AUTH0 = 0xAF_E882; // Must Contain the BYTE $AD for Reset to Activate
-        public const int GABE_RST_AUTH1 = 0xAF_E883; // Must Contain the BYTE $DE for Reset to Activate
+        public const int GABE_NOTUSED = 0xAF_E881;      // Reserved for future use
+        public const int GABE_RST_AUTH0 = 0xAF_E882;    // Must Contain the BYTE $AD for Reset to Activate
+        public const int GABE_RST_AUTH1 = 0xAF_E883;    // Must Contain the BYTE $DE for Reset to Activate
 
         // READ
-        public const int GABE_RNG_DAT_LO = 0xAF_E884; // Low Part of 16Bit RNG Generator
-        public const int GABE_RNG_DAT_HI = 0xAF_E885; // High Part of 16Bit RNG Generator
+        public const int GABE_RNG_DAT_LO = 0xAF_E884;   // Low Part of 16Bit RNG Generator
+        public const int GABE_RNG_DAT_HI = 0xAF_E885;   // High Part of 16Bit RNG Generator
 
         // WRITE
-        public const int GABE_RNG_SEED_LO = 0xAF_E884; // Low Part of 16Bit RNG Generator
-        public const int GABE_RNG_SEED_HI = 0xAF_E885; // High Part of 16Bit RNG Generator
+        public const int GABE_RNG_SEED_LO = 0xAF_E884;  // Low Part of 16Bit RNG Generator
+        public const int GABE_RNG_SEED_HI = 0xAF_E885;  // High Part of 16Bit RNG Generator
 
         // READ
         //GABE_RNG_LFSR_DONE  = $80     ; indicates that Output = SEED Database
@@ -95,13 +95,13 @@
 
         public const int GABE_SDC_SPI_CLK_DEL_REG = GABE_SDC_CTRL_START + 0xB;
 
-        public const int GABE_SDC_RX_FIFO_DATA_REG = GABE_SDC_CTRL_START + 0x10; // Data from the Block Read
+        public const int GABE_SDC_RX_FIFO_DATA_REG = GABE_SDC_CTRL_START + 0x10;    // Data from the Block Read
         public const int GABE_SDC_RX_FIFO_DATA_CNT_HI = GABE_SDC_CTRL_START + 0x12; // How many Bytes in the FIFO HI
         public const int GABE_SDC_RX_FIFO_DATA_CNT_LO = GABE_SDC_CTRL_START + 0x13; // How many Bytes in the FIFO LO
-        public const int GABE_SDC_RX_FIFO_CTRL_REG = GABE_SDC_CTRL_START + 0x14; // Bit0 Force Empty - Set to 1 to clear FIFO, self clearing(the bit)
+        public const int GABE_SDC_RX_FIFO_CTRL_REG = GABE_SDC_CTRL_START + 0x14;    // Bit0 Force Empty - Set to 1 to clear FIFO, self clearing(the bit)
 
-        public const int GABE_SDC_TX_FIFO_DATA_REG = GABE_SDC_CTRL_START + 0x20; // Write Data Block here
-        public const int GABE_SDC_TX_FIFO_CTRL_REG = GABE_SDC_CTRL_START + 0x24; // Bit0 Force Empty - Set to 1 to clear FIFO, self clearing(the bit)
+        public const int GABE_SDC_TX_FIFO_DATA_REG = GABE_SDC_CTRL_START + 0x20;    // Write Data Block here
+        public const int GABE_SDC_TX_FIFO_CTRL_REG = GABE_SDC_CTRL_START + 0x24;    // Bit0 Force Empty - Set to 1 to clear FIFO, self clearing(the bit)
 
         #endregion
     }
