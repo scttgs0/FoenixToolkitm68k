@@ -5,6 +5,8 @@
 
 # Project-specific files
 *.ui~
+*.hex
+*.srec
 
 # User-specific files
 *.rsuser
