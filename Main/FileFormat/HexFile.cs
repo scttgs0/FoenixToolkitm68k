@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 using Gtk;
 
@@ -18,50 +19,25 @@ namespace FoenixCore.Simulator.FileFormat
             startAddress = -1;
             length = -1;
 
-            if (!System.IO.File.Exists(Filename))
+            if (!File.Exists(Filename))
             {
-                FileChooserDialog filechooser =
-                    new("Select a kernel file", null,
-                        FileChooserAction.Open,
-                        "Cancel", ResponseType.Cancel,
-                        "Open", ResponseType.Accept);
-
-                using (FileFilter ff1 = new())
-                {
-                    ff1.Name = "Hex Files";
-                    ff1.AddPattern("*.hex");
-                    filechooser.AddFilter(ff1);
-                }
-                using (FileFilter ff2 = new())
-                {
-                    ff2.Name = "All Files";
-                    ff2.AddPattern("*.*");
-                    filechooser.AddFilter(ff2);
-                }
-
-                if (filechooser.Run() == (int)ResponseType.Accept) 
-                    processedFileName = filechooser.Filename;
-                else
-                {
-                    filechooser.Destroy();
+                processedFileName = promptForFile();
+                if (processedFileName == null)
                     return null;
-                }
-
-                filechooser.Destroy();
             }
 
-            string[] lines = System.IO.File.ReadAllLines(processedFileName);
+            string[] lines = File.ReadAllLines(processedFileName);
 
-            foreach (string l in lines)
+            foreach (string ln in lines)
             {
-                if (l.StartsWith(":"))
+                if (ln.StartsWith(":"))
                 {
-                    string mark = l.Substring(0, 1);
-                    string reclen = l.Substring(1, 2);
-                    string offset = l.Substring(3, 4);
-                    string rectype = l.Substring(7, 2);
-                    string data = l.Substring(9, l.Length - 11);
-                    string checksum = l[^2..];
+                    string mark = ln.Substring(0, 1);
+                    string reclen = ln.Substring(1, 2);
+                    string offset = ln.Substring(3, 4);
+                    string rectype = ln.Substring(7, 2);
+                    string data = ln.Substring(9, ln.Length - 11);
+                    string checksum = ln[^2..];
 
                     switch (rectype)
                     {
@@ -125,6 +101,34 @@ namespace FoenixCore.Simulator.FileFormat
             }
 
             return processedFileName;
+        }
+
+        static private string promptForFile()
+        {
+            using (FileChooserDialog filechooser =
+                new("Select a kernel file", null,
+                    FileChooserAction.Open,
+                    "Cancel", ResponseType.Cancel,
+                    "Open", ResponseType.Accept))
+            {
+                using (FileFilter ff1 = new())
+                {
+                    ff1.Name = "Hex Files";
+                    ff1.AddPattern("*.hex");
+                    filechooser.AddFilter(ff1);
+                }
+                using (FileFilter ff2 = new())
+                {
+                    ff2.Name = "All Files";
+                    ff2.AddPattern("*.*");
+                    filechooser.AddFilter(ff2);
+                }
+
+                if (filechooser.Run() != (int)ResponseType.Accept) 
+                    return null;
+
+                return filechooser.Filename;
+            }
         }
 
         // Read a two-character hex string into a byte
